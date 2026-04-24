@@ -24,13 +24,13 @@ async function sendData() {
 
     let arr = input.split(",").map(x => x.trim());
 
-    let res = await fetch("http://localhost:3000/bfhl", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ data: arr })
-    });
+    let res = await fetch("https://bfhl-api-h4xa.onrender.com/bfhl", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ data: arr })
+});
 
     let data = await res.json();
 

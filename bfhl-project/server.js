@@ -129,9 +129,9 @@ app.post("/bfhl", (req, res) => {
     });
 
     res.json({
-        user_id: "yourname_ddmmyyyy",
-        email_id: "your_email@srm.edu",
-        college_roll_number: "your_roll",
+        user_id: "niranjansai_24042006",
+        email_id: "niranjansaiepuri@gmail.com",
+        college_roll_number: "RA2311047010059",
         hierarchies,
         invalid_entries: invalid,
         duplicate_edges: duplicates,
