@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BFHL API</title>
+</head>
+<body>
+
+<h2>Enter Node Data</h2>
+
+<textarea id="input" rows="5" cols="40">
+A->B, A->C, B->D
+</textarea>
+
+<br><br>
+
+<button onclick="sendData()">Submit</button>
+
+<h3>Response:</h3>
+<pre id="output"></pre>
+
+<script>
+async function sendData() {
+    let input = document.getElementById("input").value;
+
+    let arr = input.split(",").map(x => x.trim());
+
+    let res = await fetch("http://localhost:3000/bfhl", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data: arr })
+    });
+
+    let data = await res.json();
+
+    document.getElementById("output").innerText =
+        JSON.stringify(data, null, 2);
+}
+</script>
+
+</body>
+</html>
