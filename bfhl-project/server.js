@@ -5,6 +5,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* ✅ ADD THIS PART (ROOT ROUTE) */
+app.get("/", (req, res) => {
+    res.send("BFHL API is running 🚀");
+});
+
 // Helper function: validate edge
 function isValidEdge(edge) {
     if (typeof edge !== "string") return false;
@@ -35,7 +40,6 @@ function buildHierarchy(edges) {
         childSet.add(c);
     });
 
-    // find roots
     const roots = Object.keys(graph).filter(n => !childSet.has(n));
 
     return { graph, roots };
